@@ -1,12 +1,5 @@
-import 'package:first_project/widget/accept_loan.dart';
-import 'package:first_project/widget/call_widget.dart';
-import 'package:first_project/widget/description_widget.dart';
 import 'package:first_project/widget/fox_fly_widget.dart';
-import 'package:first_project/widget/fox_widget.dart';
-import 'package:first_project/widget/money_to_get_ahead.dart';
-import 'package:first_project/widget/moneymanLoan.dart%20';
 import 'package:flutter/material.dart';
-import './widget/fox_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

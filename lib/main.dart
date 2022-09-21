@@ -2,8 +2,6 @@ import 'package:first_project/screens/learn_about_crypto/learn_about_crypto_scre
 import 'package:first_project/screens/mission_task_screen.dart';
 import 'package:first_project/screens/motivations/motivations_screen.dart';
 import 'package:first_project/screens/new_blockchain/new_blockchain_screen.dart';
-import 'package:first_project/widget/fox_fly_widget.dart';
-import 'package:first_project/widget/fox_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

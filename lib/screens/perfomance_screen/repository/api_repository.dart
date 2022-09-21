@@ -3,21 +3,35 @@ import 'package:http/http.dart' as http;
 import '../../request/models/post.dart';
 import '../models/galaxy.dart';
 import '../models/missions.dart';
-
+import 'package:dio/dio.dart';
 const String SERVER = "https://jsonplaceholder.typicode.com";
 
 class Repository {
 
   Future<List<Post>?> fetchPosts() async {
-    final url = Uri.parse("$SERVER/posts");
-    final response = await http.get(url);
+    Dio dio=Dio();
+    dio.options.baseUrl="$SERVER";
+    dio.options.responseType = ResponseType.json;
+    dio.options.connectTimeout = 5000;
+    dio.interceptors.add(LogInterceptor(responseBody:true));
+    //dio.options.add(LogInterceptor());
+    Response response = await dio.get('/posts');
     if (response.statusCode == 200) {
-      final postList = json.decode(response.body) as List?;
+      final postList = response.data as List?;
       final decodedList = postList?.map((e) => Post.fromJson(e)).toList();
       return decodedList;
     } else {
       throw Exception("failed request");
     }
+   // final url = Uri.parse("$SERVER/posts");
+    // final response = await http.get(url);
+    // if (response.statusCode == 200) {
+    //   final postList = json.decode(response.body) as List?;
+    //   final decodedList = postList?.map((e) => Post.fromJson(e)).toList();
+    //   return decodedList;
+    // } else {
+    //   throw Exception("failed request");
+    // }
   }
 
   Future<List<Galaxy>?> getGalaxy() async {

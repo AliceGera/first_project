@@ -21,7 +21,7 @@ class PerformanceScreenBloc
           ),
         );
       } catch (error) {
-        emit(PerformanceScreenFailedState('sss'));
+        emit(PerformanceScreenFailedState('sss maks kaktusik love'));
       }
     });
   }

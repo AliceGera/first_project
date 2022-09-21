@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../mission_task_screen.dart';
 import '../perfomance_screen/perfomance_screen.dart';
+import '../request/request_screen.dart';
 import 'bloc/motivations_screen_bloc.dart';
 
 class MotivationsScreen extends StatefulWidget {
@@ -162,7 +163,7 @@ class _MotivationsScreenState extends State<MotivationsScreen> {
                               ),
 
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>    const PerformanceScreen()));
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>    const RequestWidget()));
 
                                 /*  Navigator.push(
                                     context,

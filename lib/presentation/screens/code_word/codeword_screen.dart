@@ -34,14 +34,16 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
               state is CodeWordScreenInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is CodeWordScreenFailedState) {
-            return const Center(
+            return Center(
               child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                state.error.toString(),
+                style: const TextStyle(
+                  fontSize: 21,
+                  color: Colors.blue,
+                ),
               ),
             );
           } else if (state is CodeWordScreenSuccessState) {
-            print(state.data.saveAnswer);
             return GestureDetector(
               onTap: () {
                 FocusManager.instance.primaryFocus?.unfocus();

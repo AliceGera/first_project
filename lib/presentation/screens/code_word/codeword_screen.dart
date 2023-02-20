@@ -35,8 +35,8 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
           } else if (state is CodeWordScreenFailedState) {
             return const Center(
               child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                'exten',
+                style: TextStyle(fontSize: 23, color: Colors.blue),
               ),
             );
           } else if (state is CodeWordScreenSuccessState) {

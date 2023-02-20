@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../presentation/screens/code_word/codeword_screen.dart';
 import '../../widget/CircularProgressIndicatorWidget.dart';
 import '../new_blockchain/new_blockchain_screen.dart';
 import 'bloc/learn_about_crypto_bloc.dart';
@@ -27,12 +26,14 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
           if (state is LearnAboutCryptoLoadingState ||
               state is LearnAboutCryptoInitialState) {
             return const CircularProgressIndicatorWidget();
-
           } else if (state is LearnAboutCryptoFailedState) {
-            return const Center(
+            return Center(
               child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                state.error.toString(),
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: Colors.blue,
+                ),
               ),
             );
           } else if (state is LearnAboutCryptoSuccessState) {
@@ -226,11 +227,9 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                             InkWell(
                               onTap: () {
                                 if (index > 0) {
-                                  print(index);
                                   setState(() {
-                                    index=index-1;
+                                    index = index - 1;
                                   });
-                                  print(index);
                                   controller.jumpTo(index * 1.0);
                                 }
                               },
@@ -245,8 +244,8 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: const Color(0xFF27A8F0), // background
-                                onPrimary: Colors.white,
+                                foregroundColor: Colors.white,
+                                backgroundColor: const Color(0xFF27A8F0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                 ), // foreground

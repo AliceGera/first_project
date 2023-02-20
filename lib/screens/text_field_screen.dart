@@ -93,31 +93,40 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
                               filled: true,
                               fillColor: Colors.white,
                               contentPadding: const EdgeInsets.only(
-                                  left: 14.0, bottom: 6.0, top: 8.0),
+                                left: 14.0,
+                                bottom: 6.0,
+                                top: 8.0,
+                              ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFFE5E5E5)),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFE5E5E5),
+                                ),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 2,
-                                  color:
-                                      isCorrect ? Colors.green : Color(0xFFE5E5E5),
+                                  color: isCorrect
+                                      ? Colors.green
+                                      : const Color(0xFFE5E5E5),
                                 ),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                             ),
                             onFieldSubmitted: (value) {
-                              setState(() {
-                                validationError = validateEmail(value);
-                                isCorrect = validationError == null;
-                              });
+                              setState(
+                                () {
+                                  validationError = validateEmail(value);
+                                  isCorrect = validationError == null;
+                                },
+                              );
                             },
                             onChanged: (value) {
-                              setState(() {
-                                validationError = null;
-                              });
+                              setState(
+                                () {
+                                  validationError = null;
+                                },
+                              );
                             },
                             validator: (value) {
                               return validationError;
@@ -125,11 +134,10 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
                           ),
                         ),
                         SizedBox(
-                          //width: size.width,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: const Color(0xFFFF9D00),
-                              onPrimary: Colors.white,
+                              foregroundColor: Colors.white,
+                              backgroundColor: const Color(0xFFFF9D00),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4),
                               ),
@@ -137,7 +145,9 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
                             onPressed: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const RequestWidget()));
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RequestWidget()));
                             },
                             child: const Padding(
                               padding: EdgeInsets.symmetric(vertical: 16),

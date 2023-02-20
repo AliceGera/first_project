@@ -14,14 +14,14 @@ class PerformanceScreenBloc
     on<LoadPerformanceScreenEvent>((event, emit) async {
       emit(PerformanceScreenLoadingState());
       try {
-        final galaxies = await repository.getGalaxy();
+        final galaxies = await repository.getGalaxies();
         emit(
           PerformanceScreenSuccessState(
             PerformanceScreenData(galaxies),
           ),
         );
       } catch (error) {
-        emit(PerformanceScreenFailedState('sss'));
+        emit(PerformanceScreenFailedState('ex'));
       }
     });
   }

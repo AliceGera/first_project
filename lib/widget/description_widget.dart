@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class DescriptionWidget extends StatelessWidget {
   final List<String> descriptionList;
 
@@ -12,14 +12,15 @@ class DescriptionWidget extends StatelessWidget {
       color: const Color(0xFFF5F5F5),
       child: Column(
         children: [
-           Padding(
+          Padding(
             padding: EdgeInsets.only(bottom: 20),
             child: Text(
-              AppLocalizations.of(context).helloWorld,
-              style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF4C4C4C)),
+              AppLocalizations.of(context).continueBtn,
+              style: const TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF4C4C4C),
+              ),
             ),
           ),
           SizedBox(
@@ -45,18 +46,17 @@ class DescriptionWidget extends StatelessWidget {
                                   const EdgeInsets.fromLTRB(16, 51, 16, 43),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(24),
-                                color: Color(0xFFF5F5F5),
+                                color: const Color(0xFFF5F5F5),
                                 border: Border.all(
-                                  color: Color(0xFF9EDC15),
+                                  color: const Color(0xFF9EDC15),
                                   width: 8,
                                 ),
                               ),
                               child: Text(
                                 descriptionList[index],
-                                style: TextStyle(fontSize: 22),
+                                style: const TextStyle(fontSize: 22),
                                 textAlign: TextAlign.center,
                               ),
-                              //if(index==3)
                             ),
                             Container(
                               alignment: Alignment.center,
@@ -64,14 +64,15 @@ class DescriptionWidget extends StatelessWidget {
                               height: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: Color(0xFF9EDC15),
+                                color: const Color(0xFF9EDC15),
                               ),
                               child: Text(
                                 (index + 1).toString(),
-                                style: TextStyle(
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFF000000)),
+                                style: const TextStyle(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF000000),
+                                ),
                                 textAlign: TextAlign.center,
                               ),
                             ),

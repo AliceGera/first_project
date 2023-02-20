@@ -10,11 +10,11 @@ class RocketWidget extends StatefulWidget {
 }
 
 class _RocketWidgetState extends State<RocketWidget> {
-  @override
   final bool isRocketShow = false;
   late AnimationController _controller;
   late Animation<Size> _myAnimation;
 
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(

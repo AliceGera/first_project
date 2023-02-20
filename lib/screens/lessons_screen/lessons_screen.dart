@@ -2,21 +2,23 @@ import 'package:first_project/screens/perfomance_screen/models/planet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readmore/readmore.dart';
+import '../../presentation/screens/code_word/codeword_screen.dart';
+import '../../widget/CircularProgressIndicatorWidget.dart';
 import '../first_version_blockper/firstVersionBlockper.dart';
+import '../text_field_screen.dart';
 import 'bloc/lessons_screen_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LessonsWidget extends StatelessWidget {
+class LessonsScreen extends StatelessWidget {
   final int planetId;
 
-   const LessonsWidget({
-     required this.planetId,
+  const LessonsScreen({
+    required this.planetId,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final String lesson;
     final size = MediaQuery.of(context).size;
     return BlocProvider(
       create: (context) => LessonsScreenBloc()
@@ -27,14 +29,16 @@ class LessonsWidget extends StatelessWidget {
         builder: (context, state) {
           if (state is LessonsScreenLoadingState ||
               state is LessonsScreenInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
+
           } else if (state is LessonsScreenFailedState) {
             return const Center(
               child: Text(
-                'I\'m maks and i\'m kakash',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                'ex',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.blue,
+                ),
               ),
             );
           } else if (state is LessonsScreenSuccessState) {
@@ -85,10 +89,8 @@ class LessonsWidget extends StatelessWidget {
                                     color: const Color(0xFF08639E),
                                     borderRadius: BorderRadius.circular(14),
                                   ),
-                                  child:  Text(
-                                    state.galaxy?.title?? '',
-                                   // 'Andromeda Galaxy',
-                                    //state.??'',
+                                  child: Text(
+                                    state.galaxy?.title ?? '',
                                     style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,
@@ -102,7 +104,8 @@ class LessonsWidget extends StatelessWidget {
                               alignment: Alignment.centerRight,
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 4),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 4),
                                   alignment: Alignment.topRight,
                                   width: 15,
                                   color: const Color(0xFF27A6ED),
@@ -121,8 +124,8 @@ class LessonsWidget extends StatelessWidget {
                                       bottomRight: Radius.circular(14),
                                     ),
                                   ),
-                                  child:  Text(
-                                    state.planet?.title ??'',
+                                  child: Text(
+                                    state.planet?.title ?? '',
                                     style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
@@ -142,8 +145,8 @@ class LessonsWidget extends StatelessWidget {
                                   bottomRight: Radius.circular(14),
                                 ),
                               ),
-                              child:  Text(
-                                state.lesson?.lessonGroupTitle?? '',
+                              child: Text(
+                                state.lesson?.lessonGroupTitle ?? '',
                                 style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -186,16 +189,16 @@ class LessonsWidget extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                       Text(
-                                        state.lesson?.title?? '',
-                                         style: const TextStyle(
+                                      Text(
+                                        state.lesson?.title ?? '',
+                                        style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w500,
                                           color: Colors.white,
                                         ),
                                       ),
                                       SizedBox(height: size.height * 0.07),
-                                       Text(
+                                      Text(
                                         '${state.finishedLessons} Lessons remaning',
                                         style: const TextStyle(
                                           fontSize: 12,
@@ -205,7 +208,9 @@ class LessonsWidget extends StatelessWidget {
                                       ),
                                       SizedBox(height: size.height * 0.02),
                                       LinearProgressIndicator(
-                                        value: state.finishedLessons/ (state.planet?.lessons?.length ?? 0),
+                                        value: state.finishedLessons /
+                                            (state.planet?.lessons?.length ??
+                                                0),
                                         color: Colors.white,
                                         backgroundColor:
                                             Colors.white.withOpacity(0.3),
@@ -284,18 +289,18 @@ class LessonsWidget extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: size.height * 0.03),
-                             Text(
-                              state.lesson?.title?? '',
+                            Text(
+                              state.lesson?.title ?? '',
                               style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 22,
                                 color: Colors.white,
                               ),
                             ),
-                             Padding(
+                            Padding(
                               padding: const EdgeInsets.symmetric(vertical: 20),
                               child: ReadMoreText(
-                                state.lesson?.description?? '',
+                                state.lesson?.description ?? '',
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 20,
@@ -344,7 +349,7 @@ class LessonsWidget extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
-                                        const FirstVersionBlockperWidget()));
+                                        const TheCodewordScreen()));
                               },
                             ),
                             SizedBox(height: size.height * 0.04),

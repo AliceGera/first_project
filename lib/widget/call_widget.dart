@@ -8,12 +8,12 @@ class CallWidget extends StatelessWidget {
     // TODO: implement build
     final screenSize = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
       width: double.infinity,
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 116),
+            padding: const EdgeInsets.only(top: 116),
             decoration: const BoxDecoration(
               color: Color(0xFF9EDC15),
             ),
@@ -37,88 +37,86 @@ class CallWidget extends StatelessWidget {
                 'Notificaciones',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white),
+                  fontSize: 26,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-          Container(
+          SizedBox(
             width: double.infinity,
             height: screenSize.height * 0.1,
-            // Color(0xFF9EDC15),
-            //decoration:BoxDecoration(color: Color(0xFF9EDC15)),
             child: CustomPaint(
               painter: PathPainter(),
             ),
           ),
-          Container(
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 16),
-                  child: Text(
-                      '¿Todavía no recibes nuestros\n descuentos exclusivos?',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 26,
-                        color: Color(0xFF737373),
-                      ),
-                      textAlign: TextAlign.center),
+          Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  '¿Todavía no recibes nuestros\n descuentos exclusivos?',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 26,
+                    color: Color(0xFF737373),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 16),
-                  child: Text(
-                      'Modifica tus preferencias en ajustes\n y comienza a recibir nuestras notificaciones',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color(0xFF737373),
-                      ),
-                      textAlign: TextAlign.center),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  'Modifica tus preferencias en ajustes\n y comienza a recibir nuestras notificaciones',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                    color: Color(0xFF737373),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: ElevatedButton(
-                    //margin:EdgeInsets.symmetric(horizontal: 10),
-
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Color(0xFFFF9D00),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                          // side: BorderSide(color: Color(0xFF737373))
-                        ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      const Color(0xFFFF9D00),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.0),
                       ),
                     ),
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 27, vertical: 16),
-                      child: Text("¡Quiero recibir notificaciones!",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500)),
+                  ),
+                  onPressed: () {
+                    // Respond to button press
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 27, vertical: 16),
+                    child: Text(
+                      "¡Quiero recibir notificaciones!",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: Text(
-                    'En otro momento',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,
-                        color: Color(0xFFFF9D00)),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: Text(
+                  'En otro momento',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: Color(0xFFFF9D00),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),
@@ -130,7 +128,7 @@ class PathPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Color(0xFF9EDC15)
+      ..color = const Color(0xFF9EDC15)
       ..style = PaintingStyle.fill
       ..strokeWidth = 1.0;
 

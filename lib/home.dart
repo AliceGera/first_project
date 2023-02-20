@@ -1,12 +1,5 @@
-import 'package:first_project/widget/accept_loan.dart';
-import 'package:first_project/widget/call_widget.dart';
-import 'package:first_project/widget/description_widget.dart';
 import 'package:first_project/widget/fox_fly_widget.dart';
-import 'package:first_project/widget/fox_widget.dart';
-import 'package:first_project/widget/money_to_get_ahead.dart';
-import 'package:first_project/widget/moneymanLoan.dart%20';
 import 'package:flutter/material.dart';
-import './widget/fox_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -32,22 +25,22 @@ class _HomeState extends State<Home> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Lessons',
                 style: TextStyle(color: Colors.white),
               ),
               Row(
                 children: [
                   Image.asset('assets/images/racet.png'),
-                  SizedBox(width: 2),
-                  Text(
+                  const SizedBox(width: 2),
+                  const Text(
                     '25',
                     style: TextStyle(color: Color(0xFFEEBB1C), fontSize: 14),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Image.asset('assets/images/star.png'),
-                  SizedBox(width: 2),
-                  Text(
+                  const SizedBox(width: 2),
+                  const Text(
                     '10',
                     style: TextStyle(color: Color(0xFFEEBB1C), fontSize: 14),
                   ),

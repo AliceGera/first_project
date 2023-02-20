@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import '../../presentation/screens/code_word/codeword_screen.dart';
+import '../../widget/CircularProgressIndicatorWidget.dart';
 import '../new_blockchain/new_blockchain_screen.dart';
 import 'bloc/learn_about_crypto_bloc.dart';
 
@@ -25,13 +26,12 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
         builder: (context, state) {
           if (state is LearnAboutCryptoLoadingState ||
               state is LearnAboutCryptoInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
+
           } else if (state is LearnAboutCryptoFailedState) {
             return const Center(
               child: Text(
-                'I\'m alice and i kakash',
+                'ex',
                 style: TextStyle(fontSize: 22, color: Colors.blue),
               ),
             );
@@ -46,7 +46,6 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          // Color(0xFF78E2FB).withOpacity(1),
                           const Color(0xFF44C7FF).withOpacity(1),
                           const Color(0xFF368DC6).withOpacity(1),
                           const Color(0xFF203771).withOpacity(1),
@@ -64,12 +63,9 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.75,
                         child: PageView(
-                          /// [PageView.scrollDirection] defaults to [Axis.horizontal].
-                          /// Use [Axis.vertical] to scroll vertically.
                           controller: controller,
                           onPageChanged: (idx) {
                             setState(() {
-                              print(idx);
                               index = idx;
                             });
                           },
@@ -96,9 +92,10 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                   const Text(
                                     'Learn about crypto',
                                     style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
@@ -106,11 +103,12 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                   ),
                                   const SizedBox(
                                     child: Text(
-                                      'Crypto is complex, but Blockper makes it easy:\n Learn with short, animated lessons that break\n down complex topics for anyone to understand.',
+                                      'Crypto is complex, but Cryptor makes it easy:\n Learn with short, animated lessons that break\n down complex topics for anyone to understand.',
                                       style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.white),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.white,
+                                      ),
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
@@ -139,9 +137,10 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                   const Text(
                                     'Complete practical tasks',
                                     style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
@@ -150,9 +149,10 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                   const Text(
                                     'Theory is good, but practice is even better:\n Apply your new skills in practical, real-world\n tasks so you can experience the world of\n Crypto first-hand.',
                                     style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],
@@ -163,9 +163,9 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                               child: Column(
                                 children: [
                                   SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.15),
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
+                                  ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.25,
@@ -180,16 +180,17 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                   const Text(
                                     'Complete practical tasks',
                                     style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.04,
                                   ),
                                   const Text(
-                                    'Your progress on Blockper is rewarded with\n Stardust. Use Stardust to unlock new Galaxies',
+                                    'Your progress on Cryptor is rewarded with\n Stardust. Use Stardust to unlock new Galaxies',
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
@@ -227,7 +228,7 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                 if (index > 0) {
                                   print(index);
                                   setState(() {
-                                    index--;
+                                    index=index-1;
                                   });
                                   print(index);
                                   controller.jumpTo(index * 1.0);
@@ -251,14 +252,16 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                 ), // foreground
                               ),
                               onPressed: () {
-                                //print('$index 111');
                                 if (index == 2) {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
+                                              //const newBlockchain()));
+                                              //const TheCodewordScreen()));
+                                              // MyBankScreen()));
                                               const newBlockchain()));
-                                  Navigator.of(context).pushNamed('/screen2');
+                                  //Navigator.of(context).pushNamed('/screen2');
                                 } else {
                                   index++;
                                   controller.jumpToPage(index);

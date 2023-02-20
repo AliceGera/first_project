@@ -28,20 +28,19 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
     if (states.any(interactiveStates.contains)) {
       return Colors.blue;
     }
-    return Color(0xFFD3D2D2);
+    return const Color(0xFFD3D2D2);
   }
 
   bool isChecked = false;
   bool isChecked1 = false;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     const index = 0;
-
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          // scrollDirection = Axis.vertical,
           scrollDirection: Axis.vertical,
           child: Container(
             color: const Color(0xFFF5F5F5),
@@ -165,14 +164,12 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 24),
-                              child: Container(
-                                child: Text(
-                                  text[index + 1],
-                                  style: const TextStyle(
-                                    color: Color(0xFF4C4C4C),
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 26,
-                                  ),
+                              child: Text(
+                                text[index + 1],
+                                style: const TextStyle(
+                                  color: Color(0xFF4C4C4C),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 26,
                                 ),
                               ),
                             ),
@@ -286,8 +283,9 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                       ),
                       onPressed: () {
                         Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const TextFieldScreen()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TextFieldScreen()));
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 16),
@@ -315,9 +313,11 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                         fillColor: MaterialStateProperty.resolveWith(getColor),
                         value: isChecked,
                         onChanged: (bool? value) {
-                          setState(() {
-                            isChecked = value!;
-                          });
+                          setState(
+                            () {
+                              isChecked = value!;
+                            },
+                          );
                         },
                       ),
                       Expanded(
@@ -349,9 +349,11 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                         fillColor: MaterialStateProperty.resolveWith(getColor),
                         value: isChecked1,
                         onChanged: (bool? value) {
-                          setState(() {
-                            isChecked1 = value!;
-                          });
+                          setState(
+                            () {
+                              isChecked1 = value!;
+                            },
+                          );
                         },
                       ),
                       Expanded(
@@ -368,7 +370,8 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                                 // style: DefaultTextStyle.of(context).style,
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: 'Al solicitar Plan Cash, aceptas las ',
+                                    text:
+                                        'Al solicitar Plan Cash, aceptas las ',
                                   ),
                                   TextSpan(
                                     text: ' condiciones de la tarjeta Plazo',
@@ -379,9 +382,7 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: ' la',
-                                  ),
+                                  TextSpan(text: ' la'),
                                   TextSpan(
                                     text: ' política de privacidad ',
                                     style: TextStyle(
@@ -389,9 +390,7 @@ class _ImproveConditionsWidgetState extends State<ImproveConditionsWidget> {
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: ' y las',
-                                  ),
+                                  TextSpan(text: ' y las'),
                                   TextSpan(
                                     text: ' condiciones de Pecunpay.',
                                     style: TextStyle(

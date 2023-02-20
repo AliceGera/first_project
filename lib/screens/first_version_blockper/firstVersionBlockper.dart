@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../important_opinion/important_opinion_screen.dart';
 
-class FirstVersionBlockperWidget extends StatelessWidget {
-  const FirstVersionBlockperWidget({
+class FirstVersionCrypterWidget extends StatelessWidget {
+  const FirstVersionCrypterWidget({
     Key? key,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class FirstVersionBlockperWidget extends StatelessWidget {
                 Image.asset('assets/images/superFox.png'),
                 SizedBox(height: size.height * 0.04),
                 const Text(
-                  'This first version of Blockper\n is built for beginners.',
+                  'This first version of Cryptor\n is built for beginners.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
@@ -89,7 +89,7 @@ class FirstVersionBlockperWidget extends StatelessWidget {
                   ),
                   onTap:  () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => ImportantOpinionScreen()));
+                        .push(MaterialPageRoute(builder: (context) => const ImportantOpinionScreen()));
                   },
                 ),
                 SizedBox(height: size.height * 0.13),

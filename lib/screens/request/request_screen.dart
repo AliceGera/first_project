@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widget/CircularProgressIndicatorWidget.dart';
 import '../perfomance_screen/perfomance_screen.dart';
 import 'bloc/request_screen_bloc.dart';
 
@@ -22,14 +23,15 @@ class _RequestWidgetState extends State<RequestWidget> {
         builder: (context, state) {
           if (state is RequestScreenLoadingState ||
               state is RequestScreenInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
           } else if (state is RequestScreenFailedState) {
             return const Center(
               child: Text(
-                'I\'m maks and i\'m kakash',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                'ex',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.blue,
+                ),
               ),
             );
           } else if (state is RequestScreenSuccessState) {
@@ -78,9 +80,11 @@ class _RequestWidgetState extends State<RequestWidget> {
                         onPressed: () {
                           // widget.showOrHide.call();
                           /* Navigator.pop(context);*/
-
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>    const PerformanceScreen()));
-
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const PerformanceScreen(),
+                            ),
+                          );
                         },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(vertical: 15),
@@ -100,7 +104,7 @@ class _RequestWidgetState extends State<RequestWidget> {
               ),
             );
           }
-          return SizedBox();
+          return const SizedBox();
         },
       ),
     );

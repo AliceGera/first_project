@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widget/CircularProgressIndicatorWidget.dart';
+
 class MissionsScreen extends StatelessWidget {
   const MissionsScreen({Key? key}) : super(key: key);
 
@@ -19,13 +21,11 @@ class MissionsScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is MissionsScreenLoadingState ||
               state is MissionsScreenInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
           } else if (state is MissionsScreenFailedState) {
             return const Center(
               child: Text(
-                'I\'m alice and i\'m kakash',
+                'ex',
                 style: TextStyle(fontSize: 22, color: Colors.blue),
               ),
             );

@@ -238,8 +238,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                   SizedBox(height: size.height*0.1),
-                 /* Row(
+                  SizedBox(height: size.height * 0.1),
+                  /* Row(
                     children: [
                       Expanded(
                         child: Container(
@@ -277,9 +277,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const FirstVersionBlockperWidget()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const FirstVersionCrypterWidget(),
+                          ),
+                        );
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 16),

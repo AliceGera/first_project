@@ -39,8 +39,7 @@ class HttpRequestExecutor {
 
     request.headers
       ..contentType = ContentType.json
-      ..set(HttpHeaders.acceptHeader, 'application/json')
-      ..set('user-agent', 'BlockperEngine/(1.0) (blockper.io)');
+      ..set(HttpHeaders.acceptHeader, 'application/json');
 
     const token = '5835|RT18XM8xSDSaIMKntdtZU4NsxF0YW2Jn9rORzQAX';
     print(

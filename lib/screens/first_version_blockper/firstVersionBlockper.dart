@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../important_opinion/important_opinion_screen.dart';
 
-class FirstVersionBlockperWidget extends StatelessWidget {
-  const FirstVersionBlockperWidget({
+class FirstVersionCrypterWidget extends StatelessWidget {
+  const FirstVersionCrypterWidget({
     Key? key,
   }) : super(key: key);
 

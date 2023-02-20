@@ -145,7 +145,6 @@ class Repository {
         "Content-Type": "application/json",
         "accept": "application/json,",
         "authorization": "Bearer $token",
-        "user-agent": "BlockperEngine/(1.0) (blockper.io)",
       },
     );
     if (response.statusCode == 200) {

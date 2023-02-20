@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../first_version_blockper/firstVersionBlockper.dart';
-import '../my_bank_screen/my_bank_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -156,9 +155,10 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                    height: size.height * 0.05,
-                                    child: Image.asset(
-                                        'assets/images/profile_img.png')),
+                                  height: size.height * 0.05,
+                                  child: Image.asset(
+                                      'assets/images/profile_img.png'),
+                                ),
                                 SizedBox(height: size.height * 0.02),
                                 const Text(
                                   'Lorem ips dolor sit amet',
@@ -202,7 +202,8 @@ class HomeScreen extends StatelessWidget {
                                       Row(
                                         children: [
                                           Image.asset(
-                                              'assets/images/comments.png'),
+                                            'assets/images/comments.png',
+                                          ),
                                           const Text(
                                             '25 Comments',
                                             style: TextStyle(
@@ -239,34 +240,6 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: size.height * 0.1),
-                  /* Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: size.height * 0.3,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image:
-                                  AssetImage("assets/images/image_back1.png"),
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 17),
-                      Expanded(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image:
-                                  AssetImage("assets/images/image_back1.png"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),*/
                   SizedBox(
                     width: size.width,
                     child: ElevatedButton(

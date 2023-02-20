@@ -9,6 +9,7 @@ import '../../../widget/CircularProgressIndicatorWidget.dart';
 import '../delivery_address/delivery_adress_screen.dart';
 import 'bloc/code_word_screen_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class TheCodewordScreen extends StatefulWidget {
   const TheCodewordScreen({
     Key? key,
@@ -35,8 +36,8 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
           } else if (state is CodeWordScreenFailedState) {
             return const Center(
               child: Text(
-                'exten',
-                style: TextStyle(fontSize: 23, color: Colors.blue),
+                'ext',
+                style: TextStyle(fontSize: 21, color: Colors.blue),
               ),
             );
           } else if (state is CodeWordScreenSuccessState) {
@@ -49,9 +50,7 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                 child: Scaffold(
                   backgroundColor: const Color(0xFFFCFCFC),
                   appBar: AppBar(
-                      iconTheme: const IconThemeData(
-                        color: Colors.black
-                      ),
+                    iconTheme: const IconThemeData(color: Colors.black),
                     backgroundColor: const Color(0xFFFCFCFC),
                     centerTitle: true,
                     elevation: 0,
@@ -107,7 +106,9 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                             child: Text(
                               state.data.selectedIndex == null
                                   ? 'Выберите вопрос'
-                                  : state.data.itemList[state.data.selectedIndex!]
+                                  : state
+                                          .data
+                                          .itemList[state.data.selectedIndex!]
                                           .value ??
                                       '',
                               style: TextStyle(
@@ -139,12 +140,13 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                               hintText: "Ответ",
                               border: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                    color:
-                                        const Color(0xFF3C3C43).withOpacity(0.3)),
+                                    color: const Color(0xFF3C3C43)
+                                        .withOpacity(0.3)),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: const Color(0xFF3C3C43).withOpacity(0.3),
+                                  color:
+                                      const Color(0xFF3C3C43).withOpacity(0.3),
                                 ),
                               ),
                             ),
@@ -154,18 +156,23 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: state.data.isValid ?const Color(0xFFBE62E9):const Color(0xFFECECEC),
+                                backgroundColor: state.data.isValid
+                                    ? const Color(0xFFBE62E9)
+                                    : const Color(0xFFECECEC),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(14.0),
                                 ),
                               ),
                               onPressed: state.data.isValid
                                   ? () {
-                                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const DeliveryAddressScreen()));  //const ImproveConditionsWidget()));
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              const DeliveryAddressScreen())); //const ImproveConditionsWidget()));
                                     }
                                   : null,
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
                                 child: Text(
                                   AppLocalizations.of(context).continueBtn,
                                   style: TextStyle(

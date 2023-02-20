@@ -11,8 +11,8 @@ class MissionTaskWidget extends StatefulWidget {
 }
 
 class _MissionTaskWidgetState extends State<MissionTaskWidget> {
-  @override
-  bool isRocketShow=false;
+  bool isRocketShow = false;
+
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
@@ -34,9 +34,7 @@ class _MissionTaskWidgetState extends State<MissionTaskWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
-                SizedBox(
-                  height: size.height * 0.05,
-                ),
+                SizedBox(height: size.height * 0.05),
                 Stack(
                   alignment: Alignment.topCenter,
                   children: [
@@ -100,9 +98,7 @@ class _MissionTaskWidgetState extends State<MissionTaskWidget> {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(
-                            height: size.height * 0.05,
-                          ),
+                          SizedBox(height: size.height * 0.05),
                         ],
                       ),
                     ),
@@ -122,9 +118,10 @@ class _MissionTaskWidgetState extends State<MissionTaskWidget> {
                     ),
                   ],
                 ),
-                ChangedWidget(showOrHide: () {  },),
-
-               /*isRocketShow ? RocketWidget() :  ChangedWidget(
+                ChangedWidget(
+                  showOrHide: () {},
+                ),
+                /*isRocketShow ? RocketWidget() :  ChangedWidget(
                  showOrHide: () {
                    setState(() {
                      isRocketShow =true;

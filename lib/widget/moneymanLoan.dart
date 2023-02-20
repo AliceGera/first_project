@@ -14,8 +14,8 @@ class MoneymanLoanWidget extends StatelessWidget {
         children: [
           const SizedBox(height: 6),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 12),
-            margin: EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            margin: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
               color: Color(0xFFF5F5F5),
               image: DecorationImage(
@@ -34,18 +34,16 @@ class MoneymanLoanWidget extends StatelessWidget {
             ),
           ),
           Stack(
-            // textDirection: ,
-            //alignment: Alignment.center,
             children: [
               Container(
-                margin: EdgeInsets.all(16),
-                padding: EdgeInsets.only(top: 34, bottom: 4),
+                margin: const EdgeInsets.all(16),
+                padding: const EdgeInsets.only(top: 34, bottom: 4),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: Color(0xFFFF9D00),
+                    color: const Color(0xFFFF9D00),
                   ),
-                  color: Color(0xFFFFFFFF),
+                  color: const Color(0xFFFFFFFF),
                 ),
                 child: Stack(
                   alignment: Alignment.center,
@@ -56,7 +54,7 @@ class MoneymanLoanWidget extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: Color(0xFFFF9D00),
+                              color: const Color(0xFFFF9D00),
                             ),
                             margin: const EdgeInsets.only(left: 8),
                             padding: const EdgeInsets.symmetric(
@@ -99,7 +97,7 @@ class MoneymanLoanWidget extends StatelessWidget {
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: Color(0xFFFF9D00).withOpacity(0.15),
+                              color: const Color(0xFFFF9D00).withOpacity(0.15),
                             ),
                             child: Column(
                               children: const [
@@ -133,7 +131,7 @@ class MoneymanLoanWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                   /* Image.asset(
+                    /* Image.asset(
                       "assets/images/arrow.png",
                       width: MediaQuery.of(context).size.width * 0.13,
                     ),*/
@@ -141,7 +139,7 @@ class MoneymanLoanWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(16),
+                margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -150,17 +148,16 @@ class MoneymanLoanWidget extends StatelessWidget {
                     topLeft: Radius.circular(16),
                   ),
                   border: Border.all(
-                    color: Color(0xFFFF9D00),
+                    color: const Color(0xFFFF9D00),
                     width: 1,
                   ),
-                  color: Color(0xFFFF9D00),
+                  color: const Color(0xFFFF9D00),
                 ),
                 child: const Text(
                   'Préstamo de Moneyman',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
-                    //backgroundColor: Color(0xFFFF9D00)
                   ),
                   textAlign: TextAlign.center,
                 ),

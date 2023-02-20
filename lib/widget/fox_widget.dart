@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
 class FoxWidget extends StatelessWidget {
+  const FoxWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      //appBar: AppBar(),
       body: InkWell(
         onTap: () {
           Navigator.pushNamed(context, '/todo');
         },
-
         child: Stack(
-          //width: double.infinity,
           children: [
             Container(
               width: double.infinity,
@@ -29,11 +28,10 @@ class FoxWidget extends StatelessWidget {
             ),
             Image.asset(
               'assets/images/imgStars.png',
-              alignment: Alignment(0, 0),
+              alignment: const Alignment(0, 0),
               width: double.infinity,
             ),
             Container(
-              // padding: EdgeInsets.only(top:),
               padding: const EdgeInsets.only(top: 40),
               alignment: Alignment.center,
               child: Column(

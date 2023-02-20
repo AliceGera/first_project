@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class AcceptLoan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     final screenSize = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.only(top: 86),
+      padding: const EdgeInsets.only(top: 86),
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xFFE5E5E5),
       ),
       child: Column(
@@ -27,7 +27,7 @@ class AcceptLoan extends StatelessWidget {
                 ),
               ],
             ),
-            child: Text(
+            child: const Text(
               "¡Préstamo pre-concedido!",
               style: TextStyle(
                   color: Color(0xFF9EDC15),
@@ -42,8 +42,8 @@ class AcceptLoan extends StatelessWidget {
               height: screenSize.height * .01,
               color: Colors.white,)  ,
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 32, 0, 8),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 32, 0, 8),
             child: Text(
               '300€',
               style: TextStyle(
@@ -53,8 +53,8 @@ class AcceptLoan extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 8, 0, 24),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 8, 0, 24),
             child: Text(
               'en 30 días',
               style: TextStyle(
@@ -65,14 +65,12 @@ class AcceptLoan extends StatelessWidget {
             ),
           ),
           Stack(
-            alignment: Alignment(0, 0),
+            alignment: const Alignment(0, 0),
             children: [
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: screenSize.height * 0.1,
-                // Color(0xFF9EDC15),
-                //decoration:BoxDecoration(color: Color(0xFF9EDC15)),
-                child: CustomPaint(
+               child: CustomPaint(
                   painter: PathPainter(),
                 ),
               ),
@@ -82,9 +80,9 @@ class AcceptLoan extends StatelessWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 15),
             width: double.infinity,
-            color: Color(0xFF9EDC15),
+            color: const Color(0xFF9EDC15),
             child: const Text(
               'Confiamos en ti y te hemos concedido un\n préstamo de 300€ a devolver en un plazo\n de 30 días.',
               style: TextStyle(
@@ -105,7 +103,7 @@ class PathPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Color(0xFF9EDC15)
+      ..color = const Color(0xFF9EDC15)
       ..style = PaintingStyle.fill
       ..strokeWidth = 1.0;
     Path path = Path();
@@ -120,13 +118,11 @@ class PathPainter extends CustomPainter {
     path.close();
     canvas.drawPath(path, paint);
   }
-
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
   }
 }
-
 class PathPainter2 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {

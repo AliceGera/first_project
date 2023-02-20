@@ -25,7 +25,7 @@ class PerformanceWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => LessonsWidget(
+              builder: (context) => LessonsScreen(
                 planetId: id,
               ),
             ),

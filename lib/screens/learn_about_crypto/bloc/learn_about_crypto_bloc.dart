@@ -8,10 +8,10 @@ part 'learn_about_crypto_state.dart';
 
 class LearnAboutCryptoBloc extends Bloc<LearnAboutCryptoEvent, LearnAboutCryptoState> {
   LearnAboutCryptoBloc() : super(LearnAboutCryptoInitialState()) {
-    on<LearnAboutCryptoEvent>((event, emit) async {
+    on<LoadLearnAboutCryptoEvent>((event, emit) async {
       emit(LearnAboutCryptoLoadingState());
      try{
-       await Future.delayed(Duration(seconds: 7));
+       await Future.delayed(Duration(seconds: 2));
        emit(LearnAboutCryptoSuccessState());
      }catch (error){
        emit(LearnAboutCryptoFailedState('sss'));

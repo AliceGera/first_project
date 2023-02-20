@@ -4,6 +4,8 @@ import 'package:first_project/screens/perfomance_screen/widget/performance_conta
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../home_screen/home_screen.dart';
 import '../missions_screen/missions_screen.dart';
 import 'bloc/perfomance_screen_bloc.dart';
 import 'data/lesson_status.dart';
@@ -34,14 +36,16 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
         builder: (context, state) {
           if (state is PerformanceScreenLoadingState ||
               state is PerformanceScreenInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
+
           } else if (state is PerformanceScreenFailedState) {
-            return const Center(
+            return Center(
               child: Text(
-                'I\'m maks and i\'m kakash',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
+                state.error.toString(),
+                style: const TextStyle(
+                  fontSize: 22,
+                  color: Colors.blue,
+                ),
               ),
             );
           } else if (state is PerformanceScreenSuccessState) {
@@ -150,25 +154,28 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
                                             scrollDirection: Axis.vertical,
                                             physics:
                                                 const NeverScrollableScrollPhysics(),
-                                            itemBuilder: (BuildContext context,
-                                                int index) {
+                                            itemBuilder: (
+                                              BuildContext context,
+                                              int index,
+                                            ) {
                                               return PerformanceWidget(
-                                                  status: state
-                                                      .data
-                                                      .galaxyList?[0]
-                                                      .planets?[0]
-                                                      .lessons?[index]
-                                                      .lessonStatusType,
-                                                  text: state
-                                                          .data
-                                                          .galaxyList?[0]
-                                                          .planets?[0]
-                                                          .lessons?[index]
-                                                          .title ??
-                                                      '',
-                                                  id: state.data.galaxyList?[0]
-                                                          .planets?[0].id ??
-                                                      0);
+                                                status: state
+                                                    .data
+                                                    .galaxyList?[0]
+                                                    .planets?[0]
+                                                    .lessons?[index]
+                                                    .lessonStatusType,
+                                                text: state
+                                                        .data
+                                                        .galaxyList?[0]
+                                                        .planets?[0]
+                                                        .lessons?[index]
+                                                        .title ??
+                                                    '',
+                                                id: state.data.galaxyList?[0]
+                                                        .planets?[0].id ??
+                                                    0,
+                                              );
                                             },
                                           ),
                                         ],
@@ -189,32 +196,32 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
                           ],
                         ),
                         SizedBox(height: size.height * 0.03),
-                        Container(
-                          width: double.infinity,
-                          //height: 200,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: const Color(0xFF69D8FA),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const HomeScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color(0xFF69D8FA),
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(16, 9, 16, 9),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/rocketContainer.png',
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MissionsScreen(),
-                                      ),
-                                    );
-                                  },
-                                  child: Padding(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(16, 9, 16, 9),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/rocketContainer.png',
+                                  ),
+                                  Padding(
                                     padding: const EdgeInsets.only(left: 24),
                                     child: Column(
                                       crossAxisAlignment:
@@ -239,8 +246,8 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
                                       ],
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

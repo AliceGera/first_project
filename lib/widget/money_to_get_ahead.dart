@@ -12,10 +12,9 @@ class MoneyToGetAhead extends StatelessWidget {
           fit: BoxFit.fitWidth,
         ),
       ),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Padding(
               padding: EdgeInsets.only(top: 8),
@@ -29,7 +28,7 @@ class MoneyToGetAhead extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
@@ -74,9 +73,7 @@ class MoneyToGetAhead extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(
-                      height: 6,
-                    ),
+                    SizedBox(height: 6),
                     Text(
                       'Pago mensual máximo',
                       style: TextStyle(
@@ -94,7 +91,7 @@ class MoneyToGetAhead extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                       textAlign: TextAlign.center,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -104,5 +101,4 @@ class MoneyToGetAhead extends StatelessWidget {
       ),
     );
   }
-
 }

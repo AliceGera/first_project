@@ -80,11 +80,10 @@ class _ChangedWidgetState extends State<ChangedWidget> {
                     ),
                   ),
                   onPressed: () {
-                   // widget.showOrHide.call();
-                   /* Navigator.pop(context);*/
-
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>    ImproveConditionsWidget()));
-
+                    // widget.showOrHide.call();
+                    /* Navigator.pop(context);*/
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ImproveConditionsWidget()));
                   },
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
@@ -104,18 +103,15 @@ class _ChangedWidgetState extends State<ChangedWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   InkWell(
-
                     child: Text(
-
                       'Skip',
                       style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
-
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
                     ),
                     //onTap: () {print("value of your text");},
-
                   ),
                   InkWell(
                     child: Text(

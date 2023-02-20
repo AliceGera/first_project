@@ -8,8 +8,9 @@ class StakingWeb extends StatefulWidget {
 }
 
 class _StakingWebState extends State<StakingWeb> {
-  @override
   double _value = 1;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -21,10 +22,9 @@ class _StakingWebState extends State<StakingWeb> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  // Color(0xFF78E2FB).withOpacity(1),
-                  Color(0xFF44C7FF).withOpacity(1),
-                  Color(0xFF368DC6).withOpacity(1),
-                  Color(0xFF203771).withOpacity(1),
+                  const Color(0xFF44C7FF).withOpacity(1),
+                  const Color(0xFF368DC6).withOpacity(1),
+                  const Color(0xFF203771).withOpacity(1),
                 ],
               ),
             ),
@@ -59,9 +59,10 @@ class _StakingWebState extends State<StakingWeb> {
                           const Text(
                             'Are you new to Blockchain?',
                             style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.04,
@@ -83,19 +84,21 @@ class _StakingWebState extends State<StakingWeb> {
                             height: MediaQuery.of(context).size.height * 0.05,
                             child: SliderTheme(
                               data: SliderTheme.of(context).copyWith(
-                                activeTrackColor: Color(0xFF27A8F0),
+                                activeTrackColor: const Color(0xFF27A8F0),
                                 inactiveTrackColor: Colors.white,
                                 thumbColor: Colors.white,
-                                valueIndicatorColor: Color(0xFF27A8F0),
+                                valueIndicatorColor: const Color(0xFF27A8F0),
                                 inactiveTickMarkColor: Colors.white,
                               ),
                               child: Slider(
                                 divisions: 2,
                                 value: _value,
                                 onChanged: (value) {
-                                  setState(() {
-                                    _value = value;
-                                  });
+                                  setState(
+                                    () {
+                                      _value = value;
+                                    },
+                                  );
                                 },
                               ),
                             ),
@@ -105,21 +108,30 @@ class _StakingWebState extends State<StakingWeb> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text('Rookie',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 12)),
-                                Text('Skilled',
-                                    style: TextStyle(
-                                        color: Colors.white.withOpacity(0.6),
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 12)),
-                                Text('Expert',
-                                    style: TextStyle(
-                                        color: Colors.white.withOpacity(0.6),
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 12)),
+                                const Text(
+                                  'Rookie',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  'Skilled',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.6),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  'Expert',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.6),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -131,8 +143,8 @@ class _StakingWebState extends State<StakingWeb> {
               ),
             ],
           ),
-
         ],
-      ),);
+      ),
+    );
   }
 }

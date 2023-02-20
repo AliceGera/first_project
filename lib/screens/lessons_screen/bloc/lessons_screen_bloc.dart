@@ -21,7 +21,7 @@ class LessonsScreenBloc extends Bloc<LessonsEvent, LessonsScreenState> {
   ) async {
     emit(LessonsScreenLoadingState());
     try {
-      final galaxies = await repository.getGalaxy();
+      final galaxies = await repository.getGalaxies();
 
       final galaxy = galaxies?.firstWhere(
         (element) =>
@@ -46,7 +46,7 @@ class LessonsScreenBloc extends Bloc<LessonsEvent, LessonsScreenState> {
       emit(LessonsScreenSuccessState(lesson, planet, galaxy,finishedLessons));
     }
     catch (error) {
-      emit(LessonsScreenFailedState('sss'));
+      emit(LessonsScreenFailedState('Failed get '));
     }
   }
 }

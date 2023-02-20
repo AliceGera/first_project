@@ -25,22 +25,22 @@ class _HomeState extends State<Home> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Lessons',
                 style: TextStyle(color: Colors.white),
               ),
               Row(
                 children: [
                   Image.asset('assets/images/racet.png'),
-                  SizedBox(width: 2),
-                  Text(
+                  const SizedBox(width: 2),
+                  const Text(
                     '25',
                     style: TextStyle(color: Color(0xFFEEBB1C), fontSize: 14),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Image.asset('assets/images/star.png'),
-                  SizedBox(width: 2),
-                  Text(
+                  const SizedBox(width: 2),
+                  const Text(
                     '10',
                     style: TextStyle(color: Color(0xFFEEBB1C), fontSize: 14),
                   ),

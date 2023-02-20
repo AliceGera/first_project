@@ -1,6 +1,7 @@
 import 'package:first_project/screens/staking_web.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../widget/CircularProgressIndicatorWidget.dart';
 import '../motivations/motivations_screen.dart';
 import 'bloc/newkchain_bloc.dart';
 
@@ -16,7 +17,7 @@ var index = 0;
 
 class _newBlockchainState extends State<newBlockchain>
     with TickerProviderStateMixin {
-  late AnimationController _controller = AnimationController(
+  late final AnimationController _controller = AnimationController(
     duration: const Duration(milliseconds: 500),
     vsync: this,
   )..forward();
@@ -36,13 +37,12 @@ class _newBlockchainState extends State<newBlockchain>
         builder: (context, state) {
           if (state is NewBlockchainLoadingState ||
               state is NewBlockchainInitialState) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.blue),
-            );
+            return const CircularProgressIndicatorWidget();
+
           } else if (state is NewBlockchainFailedState) {
             return const Center(
               child: Text(
-                'I\'m maks and i\'m kakash',
+                'ex',
                 style: TextStyle(fontSize: 22, color: Colors.blue),
               ),
             );
@@ -57,10 +57,9 @@ class _newBlockchainState extends State<newBlockchain>
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          // Color(0xFF78E2FB).withOpacity(1),
-                          Color(0xFF44C7FF).withOpacity(1),
-                          Color(0xFF368DC6).withOpacity(1),
-                          Color(0xFF203771).withOpacity(1),
+                          const Color(0xFF44C7FF).withOpacity(1),
+                          const Color(0xFF368DC6).withOpacity(1),
+                          const Color(0xFF203771).withOpacity(1),
                         ],
                       ),
                     ),
@@ -110,9 +109,10 @@ class _newBlockchainState extends State<newBlockchain>
                               Text(
                                 state.data.mainText[index],
                                 style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
                               ),
                               SizedBox(
                                 height:
@@ -139,10 +139,10 @@ class _newBlockchainState extends State<newBlockchain>
                           height: MediaQuery.of(context).size.height * 0.05,
                           child: SliderTheme(
                             data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: Color(0xFF27A8F0),
+                              activeTrackColor: const Color(0xFF27A8F0),
                               inactiveTrackColor: Colors.white,
                               thumbColor: Colors.white,
-                              valueIndicatorColor: Color(0xFF27A8F0),
+                              valueIndicatorColor: const Color(0xFF27A8F0),
                               inactiveTickMarkColor: Colors.white,
                             ),
                             child: Slider(
@@ -150,11 +150,13 @@ class _newBlockchainState extends State<newBlockchain>
                               max: 2,
                               value: _value,
                               onChanged: (value) {
-                                setState(() {
-                                  _value = value;
-                                  index = value.round();
-                                  _controller.forward(from: 0);
-                                });
+                                setState(
+                                  () {
+                                    _value = value;
+                                    index = value.round();
+                                    _controller.forward(from: 0);
+                                  },
+                                );
                               },
                             ),
                           ),
@@ -167,23 +169,26 @@ class _newBlockchainState extends State<newBlockchain>
                               const Text(
                                 'Rookie',
                                 style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 12),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                ),
                               ),
                               Text(
                                 'Skilled',
                                 style: TextStyle(
-                                    color: Colors.white.withOpacity(0.6),
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 12),
+                                  color: Colors.white.withOpacity(0.6),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                ),
                               ),
                               Text(
                                 'Expert',
                                 style: TextStyle(
-                                    color: Colors.white.withOpacity(0.6),
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 12),
+                                  color: Colors.white.withOpacity(0.6),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                ),
                               ),
                             ],
                           ),
@@ -210,12 +215,21 @@ class _newBlockchainState extends State<newBlockchain>
                                 // controller.jumpToPage(2);
                                 //}
                               },
-                              child: const Text(
-                                'Skip',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                          const MotivationsScreen()));
+                                },
+                                child: const Text(
+                                  'Skip',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -233,7 +247,6 @@ class _newBlockchainState extends State<newBlockchain>
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             const MotivationsScreen()));
-
                                 Navigator.popAndPushNamed(context, '/screen3');
                                 {
                                   const StakingWeb();

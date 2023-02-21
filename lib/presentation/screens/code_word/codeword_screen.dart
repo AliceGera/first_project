@@ -3,8 +3,6 @@ import 'package:first_project/screens/learn_about_crypto/learn_about_crypto_scre
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-
-import '../../../screens/improve_conditions_moneyman_widget.dart';
 import '../../../widget/circular_progress_indicator_widget.dart';
 import '../../../widget/failed_widget.dart';
 import '../delivery_address/delivery_adress_screen.dart';

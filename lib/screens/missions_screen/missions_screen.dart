@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 
 class MissionsScreen extends StatelessWidget {
   const MissionsScreen({Key? key}) : super(key: key);
@@ -23,12 +24,7 @@ class MissionsScreen extends StatelessWidget {
               state is MissionsScreenInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is MissionsScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is MissionsScreenSuccessState) {
             return SafeArea(
               child: Scaffold(

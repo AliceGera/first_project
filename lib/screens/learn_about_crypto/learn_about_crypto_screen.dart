@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import '../new_blockchain/new_blockchain_screen.dart';
 import 'bloc/learn_about_crypto_bloc.dart';
 
@@ -27,15 +28,7 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
               state is LearnAboutCryptoInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is LearnAboutCryptoFailedState) {
-            return Center(
-              child: Text(
-                state.error.toString(),
-                style: const TextStyle(
-                  fontSize: 22,
-                  color: Colors.blue,
-                ),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is LearnAboutCryptoSuccessState) {
             return Scaffold(
               body: Stack(
@@ -260,6 +253,7 @@ class _LearnAboutCryptoScreenState extends State<LearnAboutCryptoScreen> {
                                               //const TheCodewordScreen()));
                                               // MyBankScreen()));
                                               const newBlockchain()));
+                                  //const FailedWidget()));
                                   //Navigator.of(context).pushNamed('/screen2');
                                 } else {
                                   index++;

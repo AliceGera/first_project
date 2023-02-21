@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../screens/improve_conditions_moneyman_widget.dart';
-import '../../../widget/CircularProgressIndicatorWidget.dart';
+import '../../../widget/circular_progress_indicator_widget.dart';
+import '../../../widget/failed_widget.dart';
 import '../delivery_address/delivery_adress_screen.dart';
 import 'bloc/code_word_screen_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -34,15 +35,7 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
               state is CodeWordScreenInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is CodeWordScreenFailedState) {
-            return Center(
-              child: Text(
-                state.error.toString(),
-                style: const TextStyle(
-                  fontSize: 21,
-                  color: Colors.blue,
-                ),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is CodeWordScreenSuccessState) {
             return GestureDetector(
               onTap: () {

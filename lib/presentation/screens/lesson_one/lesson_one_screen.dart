@@ -174,17 +174,19 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
               ),
             );
           }
-          @override
-          void dispose() {
-            videoPlayerController.dispose();
-            chewieController?.dispose();
-            super.dispose();
-          }
+
 
           return const SizedBox();
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    videoPlayerController.dispose();
+    chewieController?.dispose();
+    super.dispose();
   }
 }
 

@@ -102,8 +102,7 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                                   : state
                                           .data
                                           .itemList[state.data.selectedIndex!]
-                                          .value ??
-                                      '',
+                                          .value,
                               style: TextStyle(
                                 color: state.data.selectedIndex == null
                                     ? const Color(0xFF3C3C43).withOpacity(0.6)

@@ -5,8 +5,6 @@ import 'package:readmore/readmore.dart';
 import '../../presentation/screens/code_word/codeword_screen.dart';
 import '../../widget/circular_progress_indicator_widget.dart';
 import '../../widget/failed_widget.dart';
-import '../first_version_blockper/firstVersionBlockper.dart';
-import '../text_field_screen.dart';
 import 'bloc/lessons_screen_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

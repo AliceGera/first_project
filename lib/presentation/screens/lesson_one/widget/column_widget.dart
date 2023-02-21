@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ColumnWidget extends StatelessWidget {
-  //const ColumnWidget(String listText);
   final String listImages;
    final String listText;
 

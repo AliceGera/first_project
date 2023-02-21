@@ -3,12 +3,10 @@ import 'package:first_project/screens/perfomance_screen/widget/one_part_of_scree
 import 'package:first_project/screens/perfomance_screen/widget/performance_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import '../home_screen/home_screen.dart';
-import '../missions_screen/missions_screen.dart';
 import 'bloc/perfomance_screen_bloc.dart';
-import 'data/lesson_status.dart';
 
 class PerformanceScreen extends StatefulWidget {
   const PerformanceScreen({
@@ -39,15 +37,7 @@ class _PerformanceScreenState extends State<PerformanceScreen> {
             return const CircularProgressIndicatorWidget();
 
           } else if (state is PerformanceScreenFailedState) {
-            return Center(
-              child: Text(
-                state.error.toString(),
-                style: const TextStyle(
-                  fontSize: 22,
-                  color: Colors.blue,
-                ),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is PerformanceScreenSuccessState) {
             return SafeArea(
               child: Scaffold(

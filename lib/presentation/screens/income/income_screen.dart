@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../widget/CircularProgressIndicatorWidget.dart';
+import '../../../widget/circular_progress_indicator_widget.dart';
+import '../../../widget/failed_widget.dart';
 import '../lesson_one/lesson_one_screen.dart';
 import 'bloc/income_screen_bloc.dart';
 
@@ -29,12 +30,7 @@ class _IncomeScreenScreenState extends State<IncomeScreen> {
             return const CircularProgressIndicatorWidget();
 
           } else if (state is IncomeScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is IncomeScreenSuccessState) {
             return SafeArea(
               child: GestureDetector(

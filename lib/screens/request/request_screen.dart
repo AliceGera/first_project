@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import '../perfomance_screen/perfomance_screen.dart';
 import 'bloc/request_screen_bloc.dart';
 
@@ -25,15 +26,7 @@ class _RequestWidgetState extends State<RequestWidget> {
               state is RequestScreenInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is RequestScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.blue,
-                ),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is RequestScreenSuccessState) {
             return SafeArea(
               child: Scaffold(

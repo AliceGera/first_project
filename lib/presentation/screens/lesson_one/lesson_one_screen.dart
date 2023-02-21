@@ -1,9 +1,8 @@
 import 'package:first_project/presentation/screens/lesson_one/widget/column_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../screens/new_blockchain/new_blockchain_screen.dart';
-import '../../../widget/CircularProgressIndicatorWidget.dart';
-import '../income/income_screen.dart';
+import '../../../widget/circular_progress_indicator_widget.dart';
+import '../../../widget/failed_widget.dart';
 import 'bloc/lesson_one_screen_bloc.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
@@ -49,6 +48,7 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
     });
   }
 
+  final index = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -60,14 +60,8 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
           if (state is LessonOneScreenLoadingState ||
               state is LessonOneScreenInitialState) {
             return const CircularProgressIndicatorWidget();
-
           } else if (state is LessonOneScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is LessonOneScreenSuccessState) {
             return GestureDetector(
               onTap: () {
@@ -80,7 +74,7 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
                   title: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
-                      children:  [
+                      children: [
                         InkWell(
                           onTap: () {
                             Navigator.pop(context);
@@ -89,7 +83,7 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
                             Icons.arrow_back_ios,
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 106),
                           child: Text(
                             'Lesson 1',
@@ -186,6 +180,7 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
             chewieController?.dispose();
             super.dispose();
           }
+
           return const SizedBox();
         },
       ),

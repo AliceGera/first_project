@@ -1,7 +1,8 @@
 import 'package:first_project/screens/staking_web.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import '../motivations/motivations_screen.dart';
 import 'bloc/newkchain_bloc.dart';
 
@@ -38,14 +39,8 @@ class _newBlockchainState extends State<newBlockchain>
           if (state is NewBlockchainLoadingState ||
               state is NewBlockchainInitialState) {
             return const CircularProgressIndicatorWidget();
-
           } else if (state is NewBlockchainFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is NewBlockchainSuccessState) {
             return Scaffold(
               body: Stack(

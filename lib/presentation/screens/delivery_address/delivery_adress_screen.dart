@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../widget/CircularProgressIndicatorWidget.dart';
+import '../../../widget/circular_progress_indicator_widget.dart';
+import '../../../widget/failed_widget.dart';
 import '../income/income_screen.dart';
 import 'bloc/delivery_adress_screen_bloc.dart';
 
@@ -30,12 +31,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
             return const CircularProgressIndicatorWidget();
 
           } else if (state is DeliveryAddressScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is DeliveryAddressScreenSuccessState) {
             return GestureDetector(
               onTap: () {

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import 'bloc/my_bank_screen_bloc.dart';
 
 class MyBankScreen extends StatelessWidget {
@@ -59,12 +60,7 @@ class MyBankScreen extends StatelessWidget {
               state is MyBankScreenInitialState) {
             return const CircularProgressIndicatorWidget();
           } else if (state is MyBankScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(fontSize: 22, color: Colors.blue),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is MyBankScreenSuccessState) {
             return SafeArea(
               child: Scaffold(

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readmore/readmore.dart';
 import '../../presentation/screens/code_word/codeword_screen.dart';
-import '../../widget/CircularProgressIndicatorWidget.dart';
+import '../../widget/circular_progress_indicator_widget.dart';
+import '../../widget/failed_widget.dart';
 import '../first_version_blockper/firstVersionBlockper.dart';
 import '../text_field_screen.dart';
 import 'bloc/lessons_screen_bloc.dart';
@@ -32,15 +33,7 @@ class LessonsScreen extends StatelessWidget {
             return const CircularProgressIndicatorWidget();
 
           } else if (state is LessonsScreenFailedState) {
-            return const Center(
-              child: Text(
-                'ex',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.blue,
-                ),
-              ),
-            );
+            return const FailedWidget();
           } else if (state is LessonsScreenSuccessState) {
             return SafeArea(
               child: Scaffold(

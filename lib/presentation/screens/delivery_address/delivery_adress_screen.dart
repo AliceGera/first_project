@@ -1,4 +1,3 @@
-import 'package:first_project/screens/learn_about_crypto/learn_about_crypto_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';

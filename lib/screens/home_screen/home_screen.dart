@@ -1,3 +1,4 @@
+import 'package:first_project/screens/first_version/firstVersionBlockper.dart';
 import 'package:first_project/screens/home_screen/widgets/galaxy_widget.dart';
 import 'package:first_project/screens/home_screen/widgets/learn_widget.dart';
 import 'package:first_project/screens/home_screen/widgets/profile_widget.dart';
@@ -5,7 +6,6 @@ import 'package:first_project/screens/home_screen/widgets/scroll_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../first_version_blockper/firstVersionBlockper.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

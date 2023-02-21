@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:first_project/domain/interactor/code_word_interactor.dart';
 import 'package:first_project/presentation/screens/code_word/code_word_view_mapper.dart';

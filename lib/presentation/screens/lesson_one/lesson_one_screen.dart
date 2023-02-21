@@ -49,6 +49,7 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
   }
 
   final index = 0;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -124,6 +125,11 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
                           ] else ...[
                             SizedBox(
                               height: size.height * 0.28,
+                              child: const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ],
                         ],
@@ -174,7 +180,6 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
               ),
             );
           }
-
 
           return const SizedBox();
         },

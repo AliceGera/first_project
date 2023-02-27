@@ -28,7 +28,6 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
           if (state is DeliveryAddressScreenLoadingState ||
               state is DeliveryAddressScreenInitialState) {
             return const CircularProgressIndicatorWidget();
-
           } else if (state is DeliveryAddressScreenFailedState) {
             return const FailedWidget();
           } else if (state is DeliveryAddressScreenSuccessState) {

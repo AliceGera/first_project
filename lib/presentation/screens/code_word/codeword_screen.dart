@@ -19,8 +19,6 @@ class TheCodewordScreen extends StatefulWidget {
 }
 
 class _TheCodewordScreenState extends State<TheCodewordScreen> {
-  ///bool isValid = false;
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,7 +54,6 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        //const newBlockchain()));
                                         const LearnAboutCryptoScreen()));
                           },
                           child: const Icon(
@@ -231,18 +228,20 @@ class _TheCodewordScreenState extends State<TheCodewordScreen> {
                 ),
               );
             } else {
-              return Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 32,
-                  left: 16,
-                ),
-                child: InkWell(
-                  onTap: () {
-                    BlocProvider.of<CodeWordScreenBloc>(context).add(
-                      SelectCodeWordQuestionScreenEvent(index - 1),
-                    );
-                    Navigator.pop(context);
-                  },
+              return InkWell(
+                onTap: () {
+                  BlocProvider.of<CodeWordScreenBloc>(context).add(
+                    SelectCodeWordQuestionScreenEvent(index - 1),
+                  );
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16,
+                    top:16,
+                    left: 16,
+                  ),
+
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -7,6 +7,7 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.17.3 <3.0.0"
 dependencies:
+  lottie: ^2.2.0
   chewie: ^1.4.0
   video_player: ^2.5.1
   easy_localization: ^3.0.1
@@ -60,5 +61,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/
+    - assets/animations/
+    - assets/animations/images/
 
 

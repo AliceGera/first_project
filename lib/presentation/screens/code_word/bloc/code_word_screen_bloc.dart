@@ -11,19 +11,19 @@ part 'code_word_screen_state.dart';
 class CodeWordScreenBloc
     extends Bloc<CodeWordScreenEvent, CodeWordScreenState> {
   final CodeWordInteractor interactor;
-  final CodeWordViewMapper viewMaper;
+  final CodeWordViewMapper viewMapper;
 
   late CodeWordScreenData screenData;
 
   CodeWordScreenBloc(
     this.interactor,
-    this.viewMaper,
+    this.viewMapper,
   ) : super(CodeWordScreenInitialState()) {
     on<LoadCodeWordScreenEvent>((event, emit) async {
       emit(CodeWordScreenLoadingState());
       try {
         final data = await interactor.getCodeWords();
-        screenData = viewMaper.toScreenData(data);
+        screenData = viewMapper.toScreenData(data);
 
         emit(CodeWordScreenSuccessState(screenData));
       } catch (error) {
@@ -32,7 +32,7 @@ class CodeWordScreenBloc
     });
     on<SelectCodeWordQuestionScreenEvent>((event, emit) async {
       screenData.selectedIndex = event.codeWordScreenItem;
-      if (screenData.selectedIndex != 0 &&
+      if (screenData.selectedIndex != null &&
           screenData.saveAnswer?.isEmpty == false) {
         screenData.isValid = true;
       }
@@ -40,14 +40,14 @@ class CodeWordScreenBloc
     });
     on<SaveAnswerScreenEvent>((event, emit) async {
       screenData.saveAnswer = event.codeWordScreenAnswer;
-      if (screenData.selectedIndex != 0 &&
+      if (screenData.selectedIndex != null &&
           screenData.saveAnswer?.isEmpty == false) {
         screenData.isValid = true;
       }
       emit(CodeWordScreenSuccessState(screenData));
     });
     on<ContinueScreenEvent>((event, emit) async {
-      final codeWordData = viewMaper.toDomainModelData(screenData);
+      final codeWordData = viewMapper.toDomainModelData(screenData);
       await interactor.sendCodeWord(codeWordData);
       emit(CodeWordScreenSuccessState(screenData));
     });

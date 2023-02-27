@@ -1,6 +1,7 @@
 import 'package:first_project/presentation/screens/lesson_one/widget/column_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../screens/animation/animationScreen.dart';
 import '../../../widget/circular_progress_indicator_widget.dart';
 import '../../../widget/failed_widget.dart';
 import 'bloc/lesson_one_screen_bloc.dart';
@@ -167,7 +168,10 @@ class _LessonOneScreenScreenState extends State<LessonOneScreen> {
                                 borderRadius: BorderRadius.circular(48.0),
                                 //side: BorderSide(color: Colors.red)
                               )),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const AnimationWidget()));
+                          },
                           child: const Padding(
                             padding: EdgeInsets.symmetric(vertical: 14),
                             child: Text('Mark As Completed'),
